@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import {useState } from 'react';
 // import { useHistory } from 'react-router-dom';
 import api from '../../services/api';
 
@@ -8,41 +8,46 @@ const InputArea = () => {
   const [adress, setAdress] = useState('');
   const [key, setKey] = useState('');
 
-  function handleProjectSubmit() {
-    const data = {
-      name,
-      title,
-      adress,
-      key
-    }
+  // function handleProjectSubmit() {
+     
+  // }
 
-    api.post('http://localhost:3333/projects', data)
-  }
-
-
+    function handleProjectSubmit() {
+      const data = {
+        name,
+        title,
+        adress,
+        key
+      } 
+      api.post('http://localhost:3333/projects', data)
+    }    
 
   return(
     <div>
       <input
        name='name'
+       value={name}
        onChange={e => setName(e.target.value)}
        label='Nome'
        placeholder='nome'
       />
       <input
         name='title'
+        value={title}
         onChange={e => setTitle(e.target.value)}
         lable='Titulo'
         placeholder='titulo'
       />
       <input
         name='adress'
+        value={adress}
         onChange={e => setAdress(e.target.value)}
         label='URL'
         placeholder='url'
       />
       <input
         name='key'
+        value={key}
         onChange={e => setKey(e.target.value)}
         placeholder='password'
         type='password'
