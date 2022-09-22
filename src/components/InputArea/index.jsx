@@ -1,18 +1,19 @@
 import {useState } from 'react';
-// import { useHistory } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import api from '../../services/api';
+import './style.css';
 
 const InputArea = () => {
   const [name, setName] = useState('');
   const [title, setTitle] = useState('');
   const [adress, setAdress] = useState('');
   const [key, setKey] = useState('');
+  const [ posts, setPosts ] = useState([]);
 
-  // function handleProjectSubmit() {
-     
-  // }
 
-    function handleProjectSubmit() {
+    function handleProjectSubmit(e) {
+      e.preventDefault();
+
       const data = {
         name,
         title,
@@ -20,10 +21,24 @@ const InputArea = () => {
         key
       } 
       api.post('http://localhost:3333/projects', data)
+        .then((response)=> {
+          setPosts([response.data, ...posts]);
+          // setPosts(response.data)
+        })
+
+      clearContent();
     }    
 
+    function clearContent() {
+      setName('');
+      setTitle('');
+      setAdress('');
+      setKey('');
+    }
+
   return(
-    <div>
+    <div className='postArea'>
+      <h1>Criando Projetos Wengaut</h1>
       <input
        name='name'
        value={name}
