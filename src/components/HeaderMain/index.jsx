@@ -10,10 +10,7 @@ const HeaderMain = () => {
         <Link to="/">
           <img src={logo} />
         </Link>
-        <nav>
-          <Link className="link-name" to="/">
-            Home
-          </Link>
+        <nav className='add-box'>
           <Link className="link-name" to="/create">
             Add
           </Link>

@@ -1,7 +1,7 @@
 import {useState } from 'react';
-// import { Link } from 'react-router-dom';
 import api from '../../services/api';
 import './style.css';
+import { useNavigate } from 'react-router-dom';
 
 const InputArea = () => {
   const [name, setName] = useState('');
@@ -9,6 +9,8 @@ const InputArea = () => {
   const [adress, setAdress] = useState('');
   const [key, setKey] = useState('');
   const [ posts, setPosts ] = useState([]);
+
+  const navigate = useNavigate();
 
 
     function handleProjectSubmit(e) {
@@ -27,6 +29,7 @@ const InputArea = () => {
         })
 
       clearContent();
+      navigate('/');
     }    
 
     function clearContent() {

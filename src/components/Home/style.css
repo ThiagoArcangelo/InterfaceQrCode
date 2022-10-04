@@ -58,6 +58,25 @@ td {
     transition: 0.2s;
     background: #d48b8b;
 }
+.button-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.button-link {
+    background-color: #3c6fe6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    width: 80px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+}
 
 /* Css do projeto expense-tracker abaixo */
 

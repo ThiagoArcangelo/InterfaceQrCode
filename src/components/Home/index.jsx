@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import api from "../../services/api"
 import './style.css';
 
@@ -35,8 +36,12 @@ export function Home() {
             <tr>      
               <td key={project.id}>{project.name}</td>
               <td>{project.title}</td>
-              <td>{project.adress}</td>   
-              <button id='button' onClick={() => deletePost(project._id)}>Excluir</button>      
+              <td>{project.adress}</td>  
+              <div class='button-area'>
+                <Link class='button-link' to='/update'>Atualizar</Link>
+                <button id='button' onClick={() => deletePost(project._id)}>Excluir</button>     
+
+              </div> 
             </tr>
           </table>  
         )) 
