@@ -75,7 +75,12 @@ td {
     outline: none;
     border: none;
     border-radius: 4px;
-    color: #fff;
+    color: #ffffff;
+}
+
+.button-link:hover {
+    transition: 0.2s;
+    background: #5e87e6;
 }
 
 /* Css do projeto expense-tracker abaixo */

@@ -41,7 +41,7 @@ const InputArea = () => {
 
   return(
     <div className='postArea'>
-      <h1>Criando Projetos Wengaut</h1>
+      <h1>Projetos</h1>
       <input
        name='name'
        value={name}
