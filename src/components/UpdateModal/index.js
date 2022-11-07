@@ -1,6 +1,6 @@
 import { useState } from "react";
-// import { useHistory } from 'react-router-dom';
 import api from "../../services/api";
+import { useParams } from "react-router-dom";
 import "./style.css";
 
 const UpdateData = () => {
@@ -10,7 +10,9 @@ const UpdateData = () => {
   const [key, setKey] = useState("");
   const [posts, setPosts] = useState([]);
 
-  function handleProjectSubmit(e) {
+  const { id } = useParams();
+
+  function handleUpdateProjectSubmit(e) {
     e.preventDefault();
 
     const data = {
@@ -20,7 +22,7 @@ const UpdateData = () => {
       key,
     };
 
-    api.post("http://localhost:3333/projects", data).then((response) => {
+    api.put(`http://localhost:3333/projects/${id}`, data).then((response) => {
       setPosts([response.data, ...posts]);
       // setPosts(response.data)
     });
@@ -31,41 +33,57 @@ const UpdateData = () => {
   function clearContent() {
     setName("");
     setTitle("");
-    setAdress("");
+    // setAdress("");
     setKey("");
   }
 
   return (
-    <div className="postArea">
-      <input
-        name="name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        label="Nome"
-        placeholder="nome"
-      />
-      <input
-        name="title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        lable="Titulo"
-        placeholder="titulo"
-      />
-      <input
-        name="adress"
-        value={adress}
-        onChange={(e) => setAdress(e.target.value)}
-        label="URL"
-        placeholder="url"
-      />
-      <input
-        name="key"
-        value={key}
-        onChange={(e) => setKey(e.target.value)}
-        placeholder="password"
-        type="password"
-      />
-      <button onClick={handleProjectSubmit}>Enviar</button>
+    <div>
+      <form className="update-area">
+        <label>
+          Nome da Empresa:
+          <input
+            name="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            label="Nome"
+            placeholder="nome"
+          />
+        </label>
+
+        <label>
+          Equipamento:
+          <input
+            name="title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            lable="Titulo"
+            placeholder="titulo"
+          />
+        </label>
+        <label>
+          URL:
+          <input
+            name="adress"
+            value={adress}
+            onChange={(e) => setAdress(e.target.value)}
+            label="URL"
+            placeholder="url"
+          />
+        </label>
+        <label>
+          Senha:
+          <input
+            name="key"
+            value={key}
+            onChange={(e) => setKey(e.target.value)}
+            placeholder="password"
+            type="password"
+          />
+        </label>
+
+        <button onClick={handleUpdateProjectSubmit}>Atualizar</button>
+      </form>
     </div>
   );
 };

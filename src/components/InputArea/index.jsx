@@ -1,7 +1,7 @@
 import {useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import api from '../../services/api';
 import './style.css';
-import { useNavigate } from 'react-router-dom';
 
 const InputArea = () => {
   const [name, setName] = useState('');
@@ -9,6 +9,7 @@ const InputArea = () => {
   const [adress, setAdress] = useState('');
   const [key, setKey] = useState('');
   const [ posts, setPosts ] = useState([]);
+  // const { id } = useParams();
 
   const navigate = useNavigate();
 
@@ -41,36 +42,52 @@ const InputArea = () => {
 
   return(
     <div className='postArea'>
-      <h1>Projetos</h1>
-      <input
-       name='name'
-       value={name}
-       onChange={e => setName(e.target.value)}
-       label='Nome'
-       placeholder='nome'
-      />
-      <input
-        name='title'
-        value={title}
-        onChange={e => setTitle(e.target.value)}
-        lable='Titulo'
-        placeholder='titulo'
-      />
-      <input
-        name='adress'
-        value={adress}
-        onChange={e => setAdress(e.target.value)}
-        label='URL'
-        placeholder='url'
-      />
-      <input
-        name='key'
-        value={key}
-        onChange={e => setKey(e.target.value)}
-        placeholder='password'
-        type='password'
-      />
-      <button onClick={handleProjectSubmit}>Enviar</button>
+      <form>
+        <label>
+          Nome da Empresa:
+          <input
+            name='name'
+            value={name}
+            onChange={e => setName(e.target.value)}
+            label='Nome'
+            placeholder='nome'
+          />
+        </label>
+       
+       <label> 
+          Equipamento:
+          <input
+            name='title'
+            value={title}
+            onChange={e => setTitle(e.target.value)}
+            lable='Titulo'
+            placeholder='titulo'
+          />
+       </label>
+       <label>
+          URL:
+          <input
+            name='adress'
+            value={adress}
+            onChange={e => setAdress(e.target.value)}
+            label='URL'
+            placeholder='url'
+          />
+       </label>
+        <label>
+          Senha:
+          <input
+            name='key'
+            value={key}
+            onChange={e => setKey(e.target.value)}
+            placeholder='password'
+            type='password'
+          />
+        </label>
+       
+        <button onClick={handleProjectSubmit}>Enviar</button>
+      </form>
+      
     </div>
   )
 }

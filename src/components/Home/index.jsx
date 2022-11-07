@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
-import api from "../../services/api"
+import api from "../../services/api";
 import './style.css';
 
 export function Home() {
@@ -21,7 +21,7 @@ export function Home() {
 
   function deletePost(id) {
     api.delete(`/projects/${id}`)
-     .then((data) => setProjects(projects.filter((post) => {
+     .then((/*data*/) => setProjects(projects.filter((post) => {
       return post.id !== id;
      })));
   } 
