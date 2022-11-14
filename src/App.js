@@ -13,7 +13,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/create" element={<InputArea />} />
-          <Route path="/update" element={<UpdateData />} />
+          <Route path="/update/:id" element={<UpdateData />} />
         </Routes>
       </div>
     </Router>

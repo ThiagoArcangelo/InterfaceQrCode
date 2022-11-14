@@ -9,20 +9,25 @@ export function Home() {
 
   const [projects, setProjects] = useState([]);
 
- useEffect(() => {
-  api
+  function getProjects() {
+    api
     .get("/projects")
     .then((response) => {
-       setProjects(response.data);    
+       setProjects(response.data);   
+       console.log(response) 
     })
     .catch((err) => console.log("Ocorreu algum erro.", err)); 
- }, [projects]) 
+  }
+
+ useEffect(() => {
+  getProjects();
+ }, []) 
     
 
   function deletePost(id) {
     api.delete(`/projects/${id}`)
-     .then((/*data*/) => setProjects(projects.filter((post) => {
-      return post.id !== id;
+     .then((data) => setProjects(projects.filter((post) => {
+      return post._id !== id;
      })));
   } 
  
@@ -34,11 +39,11 @@ export function Home() {
         projects.map((project) => (     
           <table>       
             <tr>      
-              <td key={project.id}>{project.name}</td>
+              <td key={project._id}>{project.name}</td>
               <td>{project.title}</td>
               <td>{project.adress}</td>  
               <div class='button-area'>
-                <Link class='button-link' to='/update'>Atualizar</Link>
+                <Link class='button-link' to={`update/${project._id}`} >Atualizar</Link>
                 <button id='button' onClick={() => deletePost(project._id)}>Excluir</button>     
 
               </div> 

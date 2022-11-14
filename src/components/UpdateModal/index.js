@@ -1,6 +1,6 @@
 import { useState } from "react";
 import api from "../../services/api";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./style.css";
 
 const UpdateData = () => {
@@ -8,11 +8,11 @@ const UpdateData = () => {
   const [title, setTitle] = useState("");
   const [adress, setAdress] = useState("");
   const [key, setKey] = useState("");
-  const [posts, setPosts] = useState([]);
 
   const { id } = useParams();
+  const navigate = useNavigate();
 
-  function handleUpdateProjectSubmit(e) {
+  function handleUpdateProject(e) {
     e.preventDefault();
 
     const data = {
@@ -23,11 +23,14 @@ const UpdateData = () => {
     };
 
     api.put(`http://localhost:3333/projects/${id}`, data).then((response) => {
-      setPosts([response.data, ...posts]);
-      // setPosts(response.data)
+      setName(...data.name);
+      setTitle(...data.title);
+      setAdress(...data.adress);
+      setKey(...data.key);
     });
 
     clearContent();
+    navigate("/");
   }
 
   function clearContent() {
@@ -82,7 +85,7 @@ const UpdateData = () => {
           />
         </label>
 
-        <button onClick={handleUpdateProjectSubmit}>Atualizar</button>
+        <button onClick={handleUpdateProject}>Atualizar</button>
       </form>
     </div>
   );
