@@ -7,40 +7,20 @@ header {
     width: 100vw;
     height: 100px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
     font-weight: bold;
     background-color: #353e4e;
     
-    color: #fff;
-}
+    color: #fff;}
 
-.link-name {
-    width: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    color: #434343;
-    gap: 10px;
-    font-weight: bold;
-}
+
 
 img {
     height: 80px;
+    margin-left: 50px;
 }
 
-.add-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 60px;
-    height: 35px;
-    background: #97e6ee;
-    border-radius: 4px;
-}
 
-.add-box:hover {
-    background: #97d6dd;
-}
+

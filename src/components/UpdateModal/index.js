@@ -23,10 +23,10 @@ const UpdateData = () => {
     };
 
     api.put(`http://localhost:3333/projects/${id}`, data).then((response) => {
-      setName(...data.name);
-      setTitle(...data.title);
-      setAdress(...data.adress);
-      setKey(...data.key);
+      setName(data.name);
+      setTitle(data.title);
+      setAdress(data.adress);
+      setKey(data.key);
     });
 
     clearContent();

@@ -19,9 +19,9 @@ export function Home() {
     .catch((err) => console.log("Ocorreu algum erro.", err)); 
   }
 
- useEffect(() => {
+useEffect(() => {
   getProjects();
- }, []) 
+ }, [projects]) 
     
 
   function deletePost(id) {
@@ -33,7 +33,12 @@ export function Home() {
  
 
   return (
-    <div className="infoArea"  >         
+    <div className="infoArea"  >  
+        <div className='add-box'>
+          <Link className="link-name" to="/create">
+            Novo Projeto
+          </Link>
+        </div> 
       {    
         projects !== null &&   
         projects.map((project) => (     
@@ -44,7 +49,7 @@ export function Home() {
               <td>{project.adress}</td>  
               <div class='button-area'>
                 <Link class='button-link' to={`update/${project._id}`} >Atualizar</Link>
-                <button id='button' onClick={() => deletePost(project._id)}>Excluir</button>     
+                <button id='button' onClick={() => deletePost(project._id)}>Deletar</button>     
 
               </div> 
             </tr>

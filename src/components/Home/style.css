@@ -61,7 +61,7 @@ td {
 
 #button:hover {
     transition: 0.2s;
-    background: #d48b8b;
+    background: #af6a6a;
 }
 .button-area {
     display: flex;
@@ -86,8 +86,39 @@ td {
 
 .button-link:hover {
     transition: 0.2s;
-    background: #5e87e6;
+    background: #4d70c0;
 }
+
+.add-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 160px;
+    height: 35px;
+    background: #ff96fc;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.add-box:hover {
+    transition: 0.2s;
+    background: #d57fd2
+}
+
+.link-name {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    color: #030303;
+    gap: 10px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+
 
 /* Css do projeto expense-tracker abaixo */
 
