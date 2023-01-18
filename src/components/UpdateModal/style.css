@@ -22,3 +22,7 @@ label {
     /* font-size: 12px; */
     text-align: left;
 }
+
+.update-button {
+    margin-top: 10px;
+}

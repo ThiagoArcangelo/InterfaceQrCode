@@ -5,7 +5,6 @@ import './style.css';
 
 export function Home() {
 
-  // const [projects, setProjects] = useState([]);
 
   const [projects, setProjects] = useState([]);
 
@@ -14,16 +13,15 @@ export function Home() {
     .get("/projects")
     .then((response) => {
        setProjects(response.data);   
-       console.log(response) 
     })
     .catch((err) => console.log("Ocorreu algum erro.", err)); 
   }
 
 useEffect(() => {
   getProjects();
- }, [projects]) 
+ }) 
     
-
+ 
   function deletePost(id) {
     api.delete(`/projects/${id}`)
      .then((data) => setProjects(projects.filter((post) => {

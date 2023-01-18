@@ -26,7 +26,7 @@ const InputArea = () => {
       api.post('http://localhost:3333/projects', data)
         .then((response)=> {
           setPosts([response.data, ...posts]);
-          // setPosts(response.data)
+          setPosts(response.data)
         })
 
       clearContent();
