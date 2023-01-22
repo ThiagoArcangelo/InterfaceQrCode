@@ -21,5 +21,14 @@
     flex-direction: column;
     /* margin-bottom: 20px; */
     /* font-size: 12px; */
+<<<<<<< HEAD
     /* text-align: left; */
 }
+=======
+    text-align: left;
+}
+
+.update-button {
+    margin-top: 10px;
+}
+>>>>>>> 564a4d57a83201c39bda20b46da557eb147b8cd9

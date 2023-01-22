@@ -25,6 +25,10 @@ const InputArea = () => {
       api.post('/projects', data)
         .then((response)=> {
           setPosts([response.data, ...posts]);
+<<<<<<< HEAD:src/components/postArea/index.jsx
+=======
+          setPosts(response.data)
+>>>>>>> 564a4d57a83201c39bda20b46da557eb147b8cd9:src/components/InputArea/index.jsx
         })
 
       clearContent();
