@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home } from "./components/Home";
-import { InputArea } from "./components/InputArea";
+import { InputArea } from "./components/postArea";
 import { HeaderMain } from "./components/HeaderMain";
 import { UpdateData } from "./components/UpdateModal";
 

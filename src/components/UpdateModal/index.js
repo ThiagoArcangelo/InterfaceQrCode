@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import api from "../../services/api";
 import { useNavigate, useParams } from "react-router-dom";
 import "./style.css";
 
 const UpdateData = () => {
+
   const [name, setName] = useState("");
   const [title, setTitle] = useState("");
   const [adress, setAdress] = useState("");
@@ -11,6 +12,18 @@ const UpdateData = () => {
 
   const { id } = useParams();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    api.get(`projects/${id}`)
+      .then((response) => {
+        setName(response.data.name);
+        setTitle(response.data.title);
+        setAdress(response.data.adress);
+        setKey(response.data.key);
+      }).catch((error) => {
+        console.log("Não foi possível processar sua requisição.", error);
+      });
+  }, [id]);
 
   function handleUpdateProject(e) {
     e.preventDefault();
@@ -20,72 +33,63 @@ const UpdateData = () => {
       title,
       adress,
       key,
-    };
+    };  
 
-    api.put(`http://localhost:3333/projects/${id}`, data).then((response) => {
-      setName(data.name);
-      setTitle(data.title);
-      setAdress(data.adress);
-      setKey(data.key);
+    api.put(`/projects/update/${id}`, data)
+    .then((response) => {
+      setName(response.data.name);
+      setTitle(response.data.title);
+      setAdress(response.data.adress);
+      setKey(response.data.key);
     });
-
-    clearContent();
     navigate("/");
-  }
-
-  function clearContent() {
-    setName("");
-    setTitle("");
-    // setAdress("");
-    setKey("");
-  }
+  } 
 
   return (
-    <div>
-      <form className="update-area">
-        <label>
-          Nome da Empresa:
+    <div className="update-area">
+      <form clasName='form-update' autoComplete="off">
+        <label className='label-update'>
+          <span>Nome da Empresa:</span>
           <input
             name="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             label="Nome"
-            placeholder="nome"
+            placeholder={name}
           />
         </label>
 
-        <label>
+        <label className='label-update'>
           Equipamento:
           <input
             name="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             lable="Titulo"
-            placeholder="titulo"
+            placeholder={title}
           />
         </label>
-        <label>
+        <label className='label-update'>
           URL:
           <input
             name="adress"
             value={adress}
             onChange={(e) => setAdress(e.target.value)}
             label="URL"
-            placeholder="url"
+            placeholder={adress}
           />
-        </label>
-        <label>
+        </label >
+        <label className='label-update'>
           Senha:
-          <input
+          <input 
             name="key"
             value={key}
             onChange={(e) => setKey(e.target.value)}
-            placeholder="password"
+            placeholder={key}
             type="password"
           />
         </label>
-
-        <button onClick={handleUpdateProject}>Atualizar</button>
+        <button onClick={handleUpdateProject} >Atualizar</button>
       </form>
     </div>
   );

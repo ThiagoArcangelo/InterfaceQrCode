@@ -9,7 +9,6 @@ const InputArea = () => {
   const [adress, setAdress] = useState('');
   const [key, setKey] = useState('');
   const [ posts, setPosts ] = useState([]);
-  // const { id } = useParams();
 
   const navigate = useNavigate();
 
@@ -23,10 +22,9 @@ const InputArea = () => {
         adress,
         key
       } 
-      api.post('http://localhost:3333/projects', data)
+      api.post('/projects', data)
         .then((response)=> {
           setPosts([response.data, ...posts]);
-          // setPosts(response.data)
         })
 
       clearContent();
@@ -42,7 +40,7 @@ const InputArea = () => {
 
   return(
     <div className='postArea'>
-      <form>
+      <form >
         <label>
           Nome da Empresa:
           <input

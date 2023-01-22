@@ -12,13 +12,14 @@
     font-size: 12px;
 }
 
-label {
+
+.form-update {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     height: 50vh;
     flex-direction: column;
     /* margin-bottom: 20px; */
     /* font-size: 12px; */
-    text-align: left;
+    /* text-align: left; */
 }
