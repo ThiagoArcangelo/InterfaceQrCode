@@ -12,9 +12,9 @@ const UpdateData = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  function getProjectsById() {
+  useEffect(() => {
     api
-      .get(`/projects/${id}`)
+      .get(`/projects/update/${id}`)
       .then((response) => {
         setName(response.data.name);
         setTitle(response.data.title);
@@ -22,19 +22,15 @@ const UpdateData = () => {
         setKey(response.data.key);
       })
       .catch((err) => console.log("Ocorreu algum erro.", err));
-  };
-
-  useEffect(() => {
-    getProjectsById();
-  });
+  }, [id]);
 
 
-  async function handleUpdateProject(e) {
+  function handleUpdateProject(e) {
     e.preventDefault();
 
     const data = { name, title, adress, key };
 
-    await api
+    api
       .put(`/projects/update/${id}`, data)
       .then((response) => {
         setName(response.data.name);
@@ -45,13 +41,13 @@ const UpdateData = () => {
       .then((res) => {
         console.log(res.data);
       });
-
       navigate("/");
+
   }
 
   return (
     <div>
-      <form className="update-area"  onSubmit={handleUpdateProject} >
+      <form className="update-area"  >
         <label>
           Nome da Empresa:
           <input
@@ -96,9 +92,8 @@ const UpdateData = () => {
   
 
         <button
-          // onClick={() => handleUpdateProject}
           className="update-button"
-          type="submit"
+          onClick={handleUpdateProject}
         >
           Atualizar
         </button>
