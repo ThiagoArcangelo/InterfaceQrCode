@@ -28,20 +28,24 @@ const UpdateData = () => {
   function handleUpdateProject(e) {
     e.preventDefault();
 
-    const data = { name, title, adress, key };
+    const data = { name, title, adress, key};
 
     api
-      .put(`/projects/update/${id}`, data)
+      .put(`/projects/update/${id}`,data)
       .then((response) => {
-        setName(response.data.name);
-        setTitle(response.data.title);
-        setAdress(response.data.adress);
-        setKey(response.data.key);
+        // setName(response.data.name);
+        // setTitle(response.data.title);
+        // setAdress(response.data.adress);
+        // setKey(response.data.key);
+        if(response.status === 200) {
+          navigate("/");
+        }
       })
       .then((res) => {
         console.log(res.data);
-      });
-      navigate("/");
+      }).catch((error) => {
+        console.log('Não foi possível realizar a operação');
+      })
 
   }
 
