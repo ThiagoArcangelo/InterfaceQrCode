@@ -1,15 +1,16 @@
 import api from '../../services/api';
-import { useParams } from 'react-router-dom';
+import {useNavigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
 
 export function PostId() {
 
   const [password, setPassword] = useState("");
   const {id} = useParams();
+  const navigate = useNavigate();
 
   // Declaração dos headers
  const headers = {
-  'x-password': password,
+  "x-password": password,
  }
 
   // Função compare password
@@ -17,8 +18,12 @@ export function PostId() {
     e.preventDefault();
 
     await api.post(`/projects/password/${id}` , {headers})
-      .then((data) => {
-        return setPassword(data.password);
+      .then((response) => {
+        setPassword(response.data.password);
+        if(response.status === 302  /* || response.status === 307 */) {
+          const redirectUrl = response.headers.location;
+          navigate(redirectUrl);
+        }
       })
   }
 
@@ -31,7 +36,7 @@ export function PostId() {
           onChange={(e) => setPassword(e.target.value)} 
           placeholder="Digite a senha" 
         />
-        <button type='submit'>Enviar</button>
+        <button type="submit">Enviar</button>
       </form>
     </div>
   )
