@@ -41,8 +41,8 @@ useEffect(() => {
         projects !== null &&   
         projects.map((project) => (     
           <table>       
-            <tr>      
-              <td key={project._id}>{project.name}</td>
+            <tr  key={project._id}>      
+              <td>{project.name}</td>
               <td>{project.title}</td>
               <td>{project.adress}</td>  
               <div class='button-area'>

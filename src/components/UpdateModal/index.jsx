@@ -33,10 +33,10 @@ const UpdateData = () => {
     api
       .put(`/projects/update/${id}`,data)
       .then((response) => {
-        // setName(response.data.name);
-        // setTitle(response.data.title);
-        // setAdress(response.data.adress);
-        // setKey(response.data.key);
+        setName(response.name);
+        setTitle(response.title);
+        setAdress(response.adress);
+        setKey(response.key);
         if(response.status === 200) {
           navigate("/");
         }
