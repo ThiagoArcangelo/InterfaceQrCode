@@ -14,7 +14,7 @@ const UpdateData = () => {
 
   useEffect(() => {
     api
-      .get(`/projects/update/${id}`)
+      .get(`/projects/${id}`)
       .then((response) => {
         setName(response.data.name);
         setTitle(response.data.title);
