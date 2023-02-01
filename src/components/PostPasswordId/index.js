@@ -1,40 +1,35 @@
 import api from "../../services/api";
-import { /* useNavigate, */ useParams } from "react-router-dom";
-import { useState } from "react";
+import { useParams } from "react-router-dom";
+import {  useState, useEffect } from "react";
 
 export function PostId() {
-  const [password, setPassword] = useState({});
+  // Setando o valor do password
+  const [password, setPassword] = useState("");
+
 
   const { id } = useParams();
-  // const navigate = useNavigate();
 
-  // Declaração dos headers
-  const config = {
-    headers: {
-      "x-password": password,
-    },
-  };
-  // const headers = {
-  //   "x-password": password,
-  // };
+  useEffect(() => {
+    const getProjects = async () => {
+      await api.get(`/projects/password/${id}`, {headers: {'x-password': password}})
+        .then((res) => {
+          if(res.data.project && res.data.project.adress) {
+            window.location.assign(res.data.project.adress);
+          }
+        }).catch(error => console.log(error));
+      }
+      getProjects();
+  }, [password, id])
+
 
   // Função compare password
-  function handlePasswordId(e) {
+  async function handlePasswordId(e) {
     e.preventDefault();
-
-    api
-      .post(`/projects/password/${id}`, /* { headers } */ {}, config)
-      .then((response) => {
-        console.log(response.data);
-        // setPassword(response.data.key);
-        // if (response.status === 302 || response.status === 307) {
-        //   const redirectUrl = response.headers.location;
-        //   navigate(redirectUrl);
-        // }
-      })
-      .catch((error) => {
-        console.log(error.response);
-      });
+    await api
+      .post(`/projects/password/${id}`, {headers: {"x-password": password}})
+        .then(() => {
+          console.log("Ok True!")
+        }).catch(error => console.log(error));
   }
 
   return (
@@ -42,8 +37,8 @@ export function PostId() {
       <form onSubmit={handlePasswordId}>
         <input
           name="password"
-          // value={password}
-          onChange={(e) => setPassword({ password: e.target.value })}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           placeholder="Digite a senha"
         />
         <button type="submit">Enviar</button>

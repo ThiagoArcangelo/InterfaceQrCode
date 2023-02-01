@@ -42,15 +42,14 @@ useEffect(() => {
         projects.map((project) => (     
           <table>       
             <tr  key={project._id}>      
-              <td>{project.name}</td>
-              <td>{project.title}</td>
-              <td>{project.adress}</td>  
-              <div class='button-area'>
-                <Link class='button-link' to={`update/${project._id}`} >Atualizar</Link>
-                <button id='button' onClick={() => deletePost(project._id)}>Deletar</button>     
-
-              </div> 
-            </tr>
+                <td>{project.name}</td>
+                <td>{project.title}</td>
+                <td>{project.adress}</td>  
+                <div class='button-area'>
+                  <Link class='button-link' to={`update/${project._id}`} >Atualizar</Link>
+                  <button id='button' onClick={() => deletePost(project._id)}>Deletar</button>   
+                </div> 
+              </tr>
           </table>  
         )) 
       }              
