@@ -10,8 +10,11 @@ export function Home() {
 
   function getProjects() {
     api
-    .get("/projects")
-    .then((response) => {
+    .get("/projects") 
+    .then((response/*  , {  params: {
+      page,
+      limit,
+    }, }*/) => {
        setProjects(response.data);   
     })
     .catch((err) => console.log("Ocorreu algum erro.", err)); 
@@ -24,7 +27,7 @@ useEffect(() => {
  
   function deletePost(id) {
     api.delete(`/projects/${id}`)
-     .then((data) => setProjects(projects.filter((post) => {
+     .then(() => setProjects(projects.filter((post) => {
       return post._id !== id;
      })));
   } 
@@ -52,7 +55,10 @@ useEffect(() => {
               </tr>
           </table>  
         )) 
-      }              
+      }   
+      {/* <div>
+        Page: {page} | Limit: {limit}
+      </div>            */}
     </div>     
   )
 

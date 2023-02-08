@@ -42,7 +42,7 @@ const UpdateData = () => {
         }
       })
       .then((res) => {
-        console.log(res.data);
+        console.log("Ok True");
       }).catch((error) => {
         console.log('Não foi possível realizar a operação');
       })

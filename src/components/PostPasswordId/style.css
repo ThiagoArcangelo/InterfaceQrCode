@@ -1,0 +1,11 @@
+.post-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:  80px;
+}
+
+.button-submit {
+    margin-top: 10px;
+    list-style: none;
+}
