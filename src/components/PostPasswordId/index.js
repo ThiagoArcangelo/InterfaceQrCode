@@ -1,41 +1,44 @@
 import api from "../../services/api";
 import { useParams } from "react-router-dom";
-import { useState , useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./style.css";
 
 export function PostId() {
   // Setando o valor do password
   const [password, setPassword] = useState("");
-  const [key, setKey] = useState("");
 
   const { id } = useParams();
 
-useEffect(() => {
+  useEffect(() => {
     const getProjects = async () => {
       await api
         .get(`/projects/password/${id}`, {
           headers: { "x-password": password },
         })
         .then((res) => {
-          // if (res.data.project && res.data.project.adress) {
-          //   window.location.assign(res.data.project.adress);
-          // }
+          // window.location.assign(res.data);
           console.log(res.data);
         })
         .catch((error) => console.log(error));
     };
     getProjects();
-  }, [password, id]); 
+  }, [password, id]);
 
+  const key = {
+    key: password,
+  };
 
   // Função compare password
   async function handlePasswordId(e) {
     e.preventDefault();
 
     await api
-      .post(`/projects/password/${id}`, { key })
+      .post(`/projects/password/${id}`, key, {
+        headers: { "x-password": password },
+      })
       .then((res) => {
-        setPassword(res.data.key)
+        // setPassword(res.data.key)
+        console.log("Ok True");
       })
       .catch((error) => console.log(error));
   }
@@ -46,9 +49,9 @@ useEffect(() => {
         <input
           // autocomplete="off"
           type={password}
-          // name="key"
-          value={key}
-          onChange={(e) => setKey(e.target.value)}
+          // name="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           placeholder="Digite a senha"
         />
         <button type="submit" className="button-submit">
