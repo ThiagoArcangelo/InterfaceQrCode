@@ -9,8 +9,10 @@ export function Home() {
   const [projects, setProjects] = useState([]);
 
   function getProjects() {
+    // let page = 1;
+    // let result;
     api
-    .get("/projects") 
+    .get(`/projects`) 
     .then((response/*  , {  params: {
       page,
       limit,
@@ -45,14 +47,14 @@ useEffect(() => {
         projects.map((project) => (     
           <table>       
             <tr  key={project._id}>      
-                <td>{project.name}</td>
-                <td>{project.title}</td>
-                <td>{project.adress}</td>  
-                <div class='button-area'>
-                  <Link class='button-link' to={`update/${project._id}`} >Atualizar</Link>
-                  <button id='button' onClick={() => deletePost(project._id)}>Deletar</button>   
-                </div> 
-              </tr>
+              <td>{project.name}</td>
+              <td>{project.title}</td>
+              <td>{project.adress}</td>    
+            </tr>
+            <div class='button-area'>
+                <Link class='button-link' to={`update/${project._id}`} >Atualizar</Link>
+                <button id='button' onClick={() => deletePost(project._id)}>Deletar</button>   
+              </div> 
           </table>  
         )) 
       }   
