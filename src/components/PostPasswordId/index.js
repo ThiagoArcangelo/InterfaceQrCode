@@ -16,14 +16,15 @@ export function PostId() {
           headers: { "x-password": password },
         })
         .then((res) => {
-          // window.location.assign(res.data);
           const url = new URL(res.data);
-          window.location.replace(url);
+          // window.location.replace(url);
+          // window.location.href = url;
+          window.location.assign(url);
         })
         .catch((error) => console.log(error));
     };
     getProjects();
-  }, [password, id]);
+  });
 
   const key = {
     key: password,
