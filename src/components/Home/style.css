@@ -1,30 +1,29 @@
 body {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
- .infoArea {
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 3px;
-    gap: 5px;
-    padding: 30px;
-
-} 
+.infoArea {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 3px;
+  gap: 5px;
+  padding: 30px;
+}
 
 table {
-    width:70%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #FFF;
-    padding: 15px;
-    box-shadow: 0px 0px 5px #CCC;
-    border-radius: 10px;
-    margin-top: 20px;
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 15px;
+  box-shadow: 0px 0px 5px #ccc;
+  border-radius: 10px;
+  margin-top: 20px;
 }
 
 /* table:hover {
@@ -32,93 +31,92 @@ table {
     background: #ececec;
 } */
 
- tr {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
+tr {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 
 td {
-    width: 30%;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    text-align: left;
+  width: 30%;
+  display: flex;
+  font-family: HelveticaArial, Helvetica, sans-serif;
+  gap: 10px;
+  color: #444;
+  /* flex-wrap: wrap;
+  text-align: left; */
 }
 
 #button {
-    background-color: #dc6666;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 25px;
-    width: 80px;
-    outline: none;
-    border: none;
-    border-radius: 4px;
-    color: #fff;
+  background-color: #dc6666;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  width: 80px;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
 }
 
 #button:hover {
-    transition: 0.2s;
-    background: #af6a6a;
+  transition: 0.2s;
+  background: #af6a6a;
 }
 .button-area {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 .button-link {
-    background-color: #3c6fe6;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 25px;
-    width: 80px;
-    outline: none;
-    border: none;
-    border-radius: 4px;
-    color: #ffffff;
-    text-decoration: none;
+  background-color: #3c6fe6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  width: 80px;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .button-link:hover {
-    transition: 0.2s;
-    background: #4d70c0;
+  transition: 0.2s;
+  background: #4d70c0;
 }
 
 .add-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 160px;
-    height: 35px;
-    background: #ff96fc;
-    border-radius: 4px;
-    text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+  height: 35px;
+  background: #ff96fc;
+  border-radius: 4px;
+  text-decoration: none;
 }
 
 .add-box:hover {
-    transition: 0.2s;
-    background: #d57fd2
+  transition: 0.2s;
+  background: #d57fd2;
 }
 
 .link-name {
-    width: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    color: #030303;
-    gap: 10px;
-    font-weight: bold;
-    text-decoration: none;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  color: #030303;
+  gap: 10px;
+  font-weight: bold;
+  text-decoration: none;
 }
-
-
-
 
 /* Css do projeto expense-tracker abaixo */
 
