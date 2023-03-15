@@ -9,7 +9,8 @@ const HeaderMain = () => {
       <header>        
         <Link to="/">
           <img src={logo} className='imag-header' />
-        </Link>          
+        </Link> 
+        <Link to="/generator">Gerar QrCode</Link>         
       </header>
     </div>
   );

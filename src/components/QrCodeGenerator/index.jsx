@@ -3,7 +3,7 @@ import QRCodeLink from 'qrcode';
 import QRCode from 'react-qr-code';
 import './style.css';
 
-export default function App() {
+export function QrCodeGenerator() {
   const [link, setLink] = useState('');
   const [qrcodeLink, setQrcodeLink] = useState('');
 

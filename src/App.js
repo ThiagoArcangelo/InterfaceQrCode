@@ -4,7 +4,8 @@ import { Home } from "./components/Home";
 import { InputArea } from "./components/postArea";
 import { HeaderMain } from "./components/HeaderMain";
 import { UpdateData } from "./components/UpdateModal";
-import { PostId }  from './components/PostPasswordId';
+import { PostId } from "./components/PostPasswordId";
+import { QrCodeGenerator } from "./components/QrCodeGenerator";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/create" element={<InputArea />} />
           <Route path="/update/:id" element={<UpdateData />} />
           <Route path="/password/:id" element={<PostId />} />
+          <Route path="/generator" element={<QrCodeGenerator />} />
         </Routes>
       </div>
     </Router>

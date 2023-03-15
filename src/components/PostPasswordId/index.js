@@ -17,9 +17,14 @@ export function PostId() {
         })
         .then((res) => {
           const url = new URL(res.data);
+<<<<<<< HEAD
           // window.location.replace(url);
           // window.location.href = url;
           window.location.assign(url);
+=======
+          window.location.replace(url);
+          // window.location.href = url;
+>>>>>>> 0be94da6e75b3bc9415a6ab39205ad47d0d95a9a
         })
         .catch((error) => console.log(error));
     };
